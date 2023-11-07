@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+	<h1>Список книг</h1>
+	<a href='/book' class='btn btn-success'>Создать</a>
+	<ul>
+		{% for book in paginator.items %}
+			<li>
+				{{book.name}}
+				(<a href="/book?id={{ book.id }}">страница</a>)
+				<a href='{{ path('remove_book', { 'id': book.id}) }}' class='text-danger'>удалить</a>
+			</li>
+		{% endfor %}
+	</li>
+	{% include 'common/_paginator.html.twig' %}
+{% endblock %}

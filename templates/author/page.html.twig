@@ -1,0 +1,8 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+	<h1>Страница автора</h1>
+	{% if authorId %}
+		<a class='btn btn-danger' href='{{ path('remove_author', { 'id': authorId }) }}'>Удалить</a>
+	{% endif %}
+	{{ form(authorForm) }}
+{% endblock %}
