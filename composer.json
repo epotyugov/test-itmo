@@ -52,8 +52,9 @@
         "post-install-cmd": [
             "@auto-scripts",
 			"docker-compose up -d",
+			"@auto-scripts",
             "php bin/console doctrine:migrations:migrate",
-            "php bin/console doctrine:fixtures:load",
+            "php bin/console doctrine:fixtures:load --append",
 			"symfony serve -d"
         ],
         "post-update-cmd": [
